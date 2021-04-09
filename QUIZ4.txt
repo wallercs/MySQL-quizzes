@@ -1,0 +1,20 @@
+QUIZ 4
+1.
+SELECT Name, SurfaceArea FROM world.country
+WHERE Continent = 'North America'
+order by SurfaceArea desc
+
+2.
+SELECT Name, Population FROM world.country
+order by Population desc
+LIMIT 20
+
+3.
+SELECT Name, LifeExpectancy FROM world.country
+WHERE LifeExpectancy <= 50
+order by LifeExpectancy
+
+4.
+SELECT Name, Continent, IndepYear FROM world.country
+WHERE IndepYear IS NOT NULL
+order by Continent, Name

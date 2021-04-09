@@ -1,0 +1,12 @@
+QUIZ 3
+1. 
+SELECT Continent, Name, Population FROM world.country
+order by Continent, Name
+
+2.
+SELECT Name, SurfaceArea, Population FROM world.country
+order by SurfaceArea desc
+
+3.
+SELECT Name, Continent, Region, Population FROM world.country
+order by Continent, Region, Population desc

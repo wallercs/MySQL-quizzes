@@ -1,0 +1,37 @@
+QUIZ 5
+1.
+SELECT Name, Region, Population, LifeExpectancy FROM world.country
+WHERE Name LIKE '% and %'
+order by Name
+
+2.
+SELECT Name, Region, SurfaceArea as 'SurfaceAreaSK', SurfaceArea * .38610216 as 'SurfaceAreaSM' FROM world.country
+order by SurfaceArea desc
+
+3.
+SELECT Name, Region, SurfaceArea * .38610216 as 'SurfaceAreaSM', Population, Population/(SurfaceArea * .38610216) as Density, LifeExpectancy FROM world.country
+WHERE (Population/(SurfaceArea * .38610216) > 750) && (LifeExpectancy<70)
+order by Density desc, Region, Name
+
+4.
+
+SELECT CountryCode, Name, District, Population FROM city
+WHERE CountryCode IN (
+		SELECT Code from country
+        WHERE( (Population/(SurfaceArea * .38610216) > 750) && (LifeExpectancy<60))
+        )
+        order by Population desc
+
+
+
+5. 
+SELECT Name, Region, Population, LifeExpectancy FROM country
+
+WHERE Code IN (
+				Select CountryCode 
+                FROM countrylanguage
+                WHERE Language = 'English' && isOfficial = true
+                )
+                && Population >1000000
+order by Name
+
